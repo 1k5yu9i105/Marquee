@@ -1,0 +1,15 @@
+import os
+import time
+
+def marquee(text, width=40, speed=0.1):
+    while True:
+        for i in range(width):
+            print(" " * i + text + " " * (width - i - len(text)), end="\r")
+            time.sleep(speed)
+            os.system('cls' if os.name == 'nt' else 'clear')
+
+try:
+    user_text = input("Enter the text you want to scroll: ")
+    marquee(user_text)
+except KeyboardInterrupt:
+    pass
